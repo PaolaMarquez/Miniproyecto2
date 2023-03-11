@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { LoginPageUrl } from '../../constants/urls'
+import { HomePageUrl, LoginPageUrl } from '../../constants/urls'
 import googleLogo from "../../assets/google.png"
 import twitterLogo from "../../assets/twitter.png"
 import { signInWithGoogle, registerWithEmailAndPassword } from '../../firebase/authentication/authentication'
@@ -26,7 +26,7 @@ export function RegisterPage() {
     };
 
     const onSuccess = () => {
-        navigate(LoginPageUrl);
+        navigate(HomePageUrl);
     };
 
     return (
@@ -37,21 +37,21 @@ export function RegisterPage() {
                         <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                             Crea tu cuenta
                         </h1>
-                        <form className="space-y-4 md:space-y-6" action="#">
+                        <div className="space-y-4 md:space-y-6">
                             <div>
                                 <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre</label>
-                                <input type="text" name="name" id="name" onChange={onChange} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nombre" required=""/>
+                                <input type="text" name="name" id="name" onChange={onChange} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nombre"/>
                             </div>
                             <div>
                                 <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                                <input type="email" name="email" id="email" onChange={onChange} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required=""/>
+                                <input type="email" name="email" id="email" onChange={onChange} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com"/>
                             </div>
                             <div>
                                 <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contraseña</label>
-                                <input type="password" name="password" id="password" placeholder="••••••••" onChange={onChange} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required=""/>
+                                <input type="password" name="password" id="password" placeholder="••••••••" onChange={onChange} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
                             </div>
                             <div className="flex flex-col sm:flex-row gap-4 sm:items-center">
-                                <button onClick={() => signInWithGoogle({onSuccess: onSuccess})} className="flex bg-gray-100 justify-center items-center rounded-md p-3 hover:scale-105 transition-all border">
+                                <button onClick={() => signInWithGoogle({onSuccess:onSuccess})} className="flex bg-gray-100 justify-center items-center rounded-md p-3 hover:scale-105 transition-all border">
                                     <img src={googleLogo} alt="Google" className="w-7 h-7 mr-3"/>
                                     Registrarse con Google
                                 </button>
@@ -64,7 +64,7 @@ export function RegisterPage() {
                             <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                                 ¿Ya tienes una cuenta? <Link to={LoginPageUrl} className="font-medium text-primary-600 hover:underline dark:text-primary-500">Inicia sesión</Link>
                             </p>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>

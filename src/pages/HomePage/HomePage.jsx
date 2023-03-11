@@ -1,9 +1,11 @@
-import React from "react";
+import React from 'react'
+import { logout } from '../../firebase/authentication/authentication'
 
 export function HomePage() {
   return (
     <div>
-      <h1 className="bg-green-400">HomePage</h1>
+        HomePage
+        <button onClick={logout}>Log out</button>
     </div>
-  );
+  )
 }
