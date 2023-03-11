@@ -51,7 +51,7 @@ export function RegisterPage() {
                                 <input type="password" name="password" id="password" placeholder="••••••••" onChange={onChange} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required=""/>
                             </div>
                             <div className="flex flex-col sm:flex-row gap-4 sm:items-center">
-                                <button onClick={signInWithGoogle({onSuccess: onSuccess})} className="flex bg-gray-100 justify-center items-center rounded-md p-3 hover:scale-105 transition-all border">
+                                <button onClick={() => signInWithGoogle({onSuccess: onSuccess})} className="flex bg-gray-100 justify-center items-center rounded-md p-3 hover:scale-105 transition-all border">
                                     <img src={googleLogo} alt="Google" className="w-7 h-7 mr-3"/>
                                     Registrarse con Google
                                 </button>
