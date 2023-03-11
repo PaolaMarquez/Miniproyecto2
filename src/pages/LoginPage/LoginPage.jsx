@@ -34,7 +34,7 @@ export function LoginPage() {
                         <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                             Inicia sesión a tu cuenta
                         </h1>
-                        <form className="space-y-4 md:space-y-6">
+                        <div className="space-y-4 md:space-y-6">
                             <div>
                                 <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
                                 <input type="email" name="email" id="email" onChange={onChange} className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required=""/>
@@ -57,7 +57,7 @@ export function LoginPage() {
                             <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                                 ¿No tienes cuenta? <Link to={RegisterPageUrl} className="font-medium text-primary-600 hover:underline dark:text-primary-500">Regístrate</Link>
                             </p>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
