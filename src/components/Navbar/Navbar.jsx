@@ -1,11 +1,9 @@
-import { Fragment } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { UilBars, UilSignout, UilSignOutAlt, UilUserCircle } from '@iconscout/react-unicons'
 import { useUserContext } from "../../contexts/userContext";
 import { logout } from "../../firebase/authentication/authentication";
 import { LoginPageUrl } from "../../constants/urls";
-import logoutLogo from "../../assets/logout.png"
 
 const navigation = [
   { name: 'Movies', href: '/', current: true },
