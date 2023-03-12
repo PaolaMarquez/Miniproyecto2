@@ -77,6 +77,25 @@ export const registerWithEmailAndPassword = async ({ name, email, password, onSu
     }
 };
 
+export async function getUserProfile(email) {
+    const userQuery = query(
+      collection(db, "users"),
+      where("email", "==", email)
+    );
+
+    const results = await getDocs(userQuery);
+
+    if (results.size > 0) {
+        const [user] = results.docs.map((item) => ({
+        ...item.data(),
+        id: item.id,
+        }));
+        return user;
+    }
+
+    return null;
+};
+
 export const sendPasswordReset = async (email) => {
     try {
         await sendPasswordResetEmail(auth, email);
