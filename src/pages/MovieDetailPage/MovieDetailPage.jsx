@@ -40,7 +40,7 @@ export function MovieDetailPage() {
   }
 
   return (
-    <div className=" p-10 bg-opacity-50" style={{
+    <div className=" p-10 bg-opacity-50 md:w-screen md:h-screen" style={{
       background: `url(https://image.tmdb.org/t/p/w500${backdrop_path})`,
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
