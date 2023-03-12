@@ -16,12 +16,12 @@ export default function Card({ movie }){
                 <h3 className="text-sm text-gray-700">
                 <Link to={movie.href}>
                     <span aria-hidden="true" className="absolute inset-0" />
-                    {movie.title}
+                    <p className="text-lg">{movie.title}</p>
                 </Link>
                 </h3>
-                <p className="mt-1 text-sm text-gray-500">{movie.popularity}</p>
+                <p className="text-sm font-medium text-gray-900">Popularidad: {movie.popularity}</p>
+                <p className="text-sm text-gray-500">Idioma: {movie.original_language}</p>
             </div>
-            <p className="text-sm font-medium text-gray-900">{movie.original_language}</p>
             </div>
         </div>
     )
