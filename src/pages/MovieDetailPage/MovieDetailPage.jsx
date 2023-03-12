@@ -2,7 +2,6 @@ import React from "react";
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import { useMovies } from "../../hooks/useMovies";
-import ProgressBar from "./ProgressBar";
 export function MovieDetailPage() {
   const { movieId } = useParams();
   const { getMovie, movie, isLoading } = useMovies();
@@ -18,7 +17,7 @@ export function MovieDetailPage() {
     release_date,
     status,
     backdrop_path,
-    production_countries,
+    runtime,
   } = movie || {};
   useEffect(() => {
     if (!isLoading && movieId) {
@@ -60,21 +59,25 @@ export function MovieDetailPage() {
                 </div>
                 {/* Div tiene la informacion de fecha de lanzamiento, genero, duracion, idioma original de la pelicula */}
                 <div className="flex flex-col md:flex-row justify-start md:justify-between items-center mt-6 lg:flex-row lg:justify-start lg:row-span-3 lg:mt-4">
-                  <span className="text-xl tracking-tight text-gray-100 whitespace-nowrap mb-2 sm:mb-0">{release_date}</span>
+                  <span className="text-xl tracking-tight text-gray-100 whitespace-nowrap mb-2 sm:mb-0 uppercase">{release_date}</span>
                   <span className="relative inline-block mx-5">
-                    <div className="relative top-3 left-0.5 transform -translate-x-0.5 -translate-y-0.5 w-3 h-3 rounded-full bg-gray-100"></div>
+                    <div className="relative top-1 left-0.5 transform -translate-x-0.5 -translate-y-0.5 w-3 h-3 rounded-full bg-gray-100"></div>
                   </span>    
-                  <span className="text-xl tracking-tight text-gray-100 whitespace-nowrap mb-2 sm:mb-0">{genres.map((genre) => genre.name).join(', ')}</span>         
+                  <span className="text-xl tracking-tight text-gray-100 whitespace-nowrap mb-2 sm:mb-0 uppercase">{genres.map((genre) => genre.name).join(', ')}</span>         
                   <span className="relative inline-block mx-5">
-                    <div className="relative top-3 left-0.5 transform -translate-x-0.5 -translate-y-0.5 w-3 h-3 rounded-full bg-gray-100"></div>
+                    <div className="relative top-1 left-0.5 transform -translate-x-0.5 -translate-y-0.5 w-3 h-3 rounded-full bg-gray-100"></div>
                   </span> 
-                  <span className="text-xl tracking-tight text-gray-100 whitespace-nowrap mb-2 sm:mb-0">{original_language}</span>  
+                  <span className="text-xl tracking-tight text-gray-100 whitespace-nowrap mb-2 sm:mb-0 uppercase">{original_language}</span>  
+                  <span className="relative inline-block mx-5">
+                    <div className="relative top-1 left-0.5 transform -translate-x-0.5 -translate-y-0.5 w-3 h-3 rounded-full bg-gray-100"></div>
+                  </span> 
+                  <span className="text-xl tracking-tight text-gray-100 whitespace-nowrap mb-2 sm:mb-0 uppercase">{runtime} min</span> 
                 </div>
                 {/* Con este componente se logro la creacion de la barra de progreso #Ayuda de youtube */}
                 <div className="flex">
                   <div className="block mt-7">
                     <h2 className="text-lg font-medium text-gray-100 mb-5">Rating</h2>
-                    <ProgressBar percentage={popularity}/>    
+                      <p className="text-lg font-medium text-gray-100">{popularity}</p>  
                   </div> 
                   {/* Status*/}
                   <div className="block mt-7 ml-16">
@@ -82,7 +85,7 @@ export function MovieDetailPage() {
                     <div className="flex">
                       <p className="text-lg font-medium text-gray-100">{status}</p>
                       <span className="relative inline-block mx-5">
-                        <div className="relative top-3 left-0.5 transform -translate-x-0.5 -translate-y-0.5 w-3 h-3 rounded-full bg-green-500"></div>
+                        <div className={status === "Released" ? ('relative top-3 left-0.5 transform -translate-x-0.5 -translate-y-0.5 w-3 h-3 rounded-full bg-green-500'):('relative top-3 left-0.5 transform -translate-x-0.5 -translate-y-0.5 w-3 h-3 rounded-full bg-gray-500')}></div>
                       </span>
                     </div> 
                   </div>    
