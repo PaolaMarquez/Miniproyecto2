@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { fetchMoviesSearch } from "../utils/movies-api"
-import Card from "../../components/Card/Card";
+import Card from "./Card/Card"
 
 export default function Search(){
     const [search, setSearch] = useState('');
@@ -13,7 +13,7 @@ export default function Search(){
     
     return (
         <>
-        <div className="w-screen flex justify-center"> 
+        <div className="w-screen flex justify-center mt-4"> 
             <form className="w-1/2" onSubmit={ev => {
                 ev.preventDefault()
                 getMovies();                
