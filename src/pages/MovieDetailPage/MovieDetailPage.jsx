@@ -35,8 +35,8 @@ function classNames(...classes) {
 }
 export function MovieDetailPage() {
   return (
-    <div className="bg-white">
-      <div className="pt-8">
+    <div className="bg-white w-full h-full">
+      <div className="pt-10 w-full h-full">
         <nav aria-label="Breadcrumb">
           <ol role="list" className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
             {details.breadcrumbs.map((breadcrumb) => (
@@ -65,37 +65,37 @@ export function MovieDetailPage() {
             </li>
           </ol>
         </nav>
-        <img src={bgcreed}alt="Imagen de fondo" class="absolute inset-14 w-full h-full object-cover"/>
-        <div class="absolute inset-14 bg-gray-600 opacity-80 w-full h-full"></div>
-        <div class="absolute inset-14 flex items-center justify-center">
+        <img src={bgcreed}alt="Imagen de fondo" class="absolute inset-15  w-full h-full object-cover md:inset-auto  "/>
+        <div class="absolute inset-auto bg-gray-600 opacity-80 w-full h-full sm: "></div>
+        <div class="absolute inset-14 flex items-center justify-center ">
           {/* Image gallery e informacion de importancia */}
-          <div className="flex mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
-              <img
-                src={details.images[0].src}
-                alt={details.images[0].alt}
-                className="h-full w-full object-cover object-center  "
-              />
+          <div className="flex mx-auto mt-6 max-w-2xl sm:px-0.5    lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
+            <img
+              src={details.images[0].src}
+              alt={details.images[0].alt}
+              className="w-1/2 h-1/2 object-fill object-center  md:w-auto md:h-auto"
+            />
               <div class="block justify-start">
                 {/* Titulo*/}
                 <div className="mt-4 lg:row-span-3 lg:mt-0">
                   <h1 className="text-2xl font-bold tracking-tight text-gray-100 sm:text-5xl">{details.name}</h1>
                 </div>
                 {/* Div tiene la informacion de fecha de lanzamiento, genero, duracion, idioma original de la pelicula */}
-                <div className="flex justify-start mt-6 lg:row-span-3 lg:mt-4">
-                  <span className="text-xl tracking-tight text-gray-100 whitespace-nowrap">{details.date}</span>
+                <div className="flex flex-col md:flex-row justify-start md:justify-between items-center mt-6 lg:flex-row lg:justify-start lg:row-span-3 lg:mt-4">
+                  <span className="text-xl tracking-tight text-gray-100 whitespace-nowrap mb-2 sm:mb-0">{details.date}</span>
                   <span className="relative inline-block mx-5">
                     <div className="relative top-3 left-0.5 transform -translate-x-0.5 -translate-y-0.5 w-3 h-3 rounded-full bg-gray-100"></div>
-                  </span>     
-                  <span className=" text-xl tracking-tight text-gray-100 whitespace-nowrap">{details.moviegen}</span>         
+                  </span>    
+                  <span className="text-xl tracking-tight text-gray-100 whitespace-nowrap mb-2 sm:mb-0">{details.moviegen}</span>         
                   <span className="relative inline-block mx-5">
                     <div className="relative top-3 left-0.5 transform -translate-x-0.5 -translate-y-0.5 w-3 h-3 rounded-full bg-gray-100"></div>
                   </span> 
-                  <span className="text-xl tracking-tight text-gray-100 whitespace-nowrap">{details.duration}</span>
+                  <span className="text-xl tracking-tight text-gray-100 whitespace-nowrap mb-2 sm:mb-0">{details.duration}</span>
                   <span className="relative inline-block mx-5">
                     <div className="relative top-3 left-0.5 transform -translate-x-0.5 -translate-y-0.5 w-3 h-3 rounded-full bg-gray-100"></div>
                   </span>
-                  <span className="text-xl tracking-tight text-gray-100 whitespace-nowrap">{details.language}</span>  
-                </div> 
+                  <span className="text-xl tracking-tight text-gray-100 whitespace-nowrap mb-2 sm:mb-0">{details.language}</span>  
+                </div>
                 {/* Con este componente se logro la creacion de la barra de progreso #Ayuda de youtube */}
                 <div className="flex">
                   <div className="block mt-7">
