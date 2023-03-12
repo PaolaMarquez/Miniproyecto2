@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { MovieDetailPageUrl } from "../../constants/urls";
-import { fetchMoviesDetail } from "../../utils/movies-api";
+// import { fetchMoviesDetail } from "../../utils/movies-api";
 
 export default function Card({ movie }) {
   const imgUrl = "https://image.tmdb.org/t/p/original";
