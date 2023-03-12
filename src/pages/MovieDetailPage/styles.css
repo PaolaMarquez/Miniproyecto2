@@ -1,0 +1,29 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Ajusta el tamaño del texto */
+.text {
+  font-size: 30px;
+}
+
+/* Ajusta el tamaño del anillo */
+.path {
+  stroke-width: 10px;
+}
+
+/* Ajusta el tamaño del círculo */
+.circle {
+  height: 100% !important;
+  width: 100% !important;
+}
+
+/* Establece el color de fondo */
+.trail {
+  stroke: #eee;
+}
+
+/* Establece el color del anillo */
+.path {
+  stroke: rgb(68, 255, 51);
+}
