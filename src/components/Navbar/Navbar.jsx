@@ -1,17 +1,22 @@
-import { useNavigate } from 'react-router-dom';
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { UilBars, UilSignout, UilSignOutAlt, UilUserCircle } from '@iconscout/react-unicons'
+import { Link, useNavigate } from "react-router-dom";
+import { Disclosure, Menu } from "@headlessui/react";
+import {
+  UilBars,
+  UilSignout,
+  UilSignOutAlt,
+  UilUserCircle,
+} from "@iconscout/react-unicons";
 import { useUserContext } from "../../contexts/userContext";
 import { logout } from "../../firebase/authentication/authentication";
 import { LoginPageUrl } from "../../constants/urls";
 
 const navigation = [
-  { name: 'Movies', href: '/', current: true },
-  { name: 'Search Movie', href: '/detail', current: false },
-]
+  { name: "Películas", href: "/", current: true },
+  { name: "Buscador películas", href: "/search", current: false },
+];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 export function Navbar() {
@@ -32,9 +37,12 @@ export function Navbar() {
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                  <span className="sr-only">Open main menu</span>
+                  <span className="sr-only">Open main mensu</span>
                   {open ? (
-                    <UilSignOutAlt className="block h-6 w-6" aria-hidden="true" />
+                    <UilSignOutAlt
+                      className="block h-6 w-6"
+                      aria-hidden="true"
+                    />
                   ) : (
                     <UilBars className="block h-6 w-6" aria-hidden="true" />
                   )}
@@ -44,29 +52,30 @@ export function Navbar() {
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
-                        href={item.href}
+                        to={item.href}
                         className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'rounded-md px-3 py-2 text-sm font-medium'
+                          item.current
+                            ? "text-gray-300 hover:bg-gray-700 hover:text-white"
+                            : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                          "rounded-md px-3 py-2 text-sm font-medium"
                         )}
-                        aria-current={item.current ? 'page' : undefined}
+                        aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
                   <div>
                     <Menu.Button className="cursor-default flex rounded-full bg-gray-800 text-sm mr-2">
                       <span className="sr-only">Open user menu</span>
-                      <UilUserCircle className="fill-blue-500"/>
+                      <UilUserCircle className="fill-blue-500" />
                     </Menu.Button>
                   </div>
                 </Menu>
@@ -74,7 +83,7 @@ export function Navbar() {
                 {/* User Name */}
                 {!isLoadingUser && !!user ? (
                   <span className="text-white mr-5">{user.name}</span>
-                ) : (null)}
+                ) : null}
 
                 {/* Logout */}
                 <div>
@@ -84,7 +93,7 @@ export function Navbar() {
                     className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white"
                   >
                     <span className="sr-only">Logout</span>
-                    <UilSignout/>
+                    <UilSignout />
                   </button>
                 </div>
               </div>
@@ -93,5 +102,5 @@ export function Navbar() {
         </>
       )}
     </Disclosure>
-  )
+  );
 }

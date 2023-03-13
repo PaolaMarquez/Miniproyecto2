@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import Card from "../../components/Card/Card";
 import { fetchMovies, fetchUpcomingMovies } from "../../utils/movies-api";
 
@@ -102,9 +102,9 @@ export function HomePage() {
 
                 {/* Movies */}
                 <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                    {movies.map((movie) => (
+                {movies.map((movie) => (
                     <Card movie={movie} key={movie.id} />
-                    ))}
+                ))}
                 </div>
             </div>
         </div>
