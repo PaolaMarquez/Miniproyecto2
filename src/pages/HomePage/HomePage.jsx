@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import Card from "../../components/Card/Card";
 import { fetchMovies, fetchUpcomingMovies } from "../../utils/movies-api";
-
+import {useMovies} from "../../hooks/useMovies";
 export function HomePage() {
-    const [movies, setMovies] = useState([]);
     const [page, setPage] = useState(1);
     const [option, setOption] = useState(0);
-    
+    const {getMovies, getUpcomingMovies, movies, isLoading} = useMovies();
     const handlePrev = () => {
         setPage(page - 1);
         if (option === 0){
@@ -25,15 +24,6 @@ export function HomePage() {
         }
     };
 
-    const getMovies = async (page) => {
-        const {data} = await fetchMovies(page);
-        setMovies(data.results);
-    };
-
-    const getUpcomingMovies = async (page) => {
-        const {data} = await fetchUpcomingMovies(page);
-        setMovies(data.results);
-    };
 
     const handleCommonMovies = () => {
         if (option === 1){
@@ -57,7 +47,21 @@ export function HomePage() {
             getUpcomingMovies(page);
         }
     }, [page]);
-
+    if (isLoading) {
+        return (
+          <div>
+            <h1>Loading...</h1>
+          </div>
+        );
+      }
+    
+      if (!isLoading && !movies) {
+        return (
+          <div>
+            <h1>NOT FOUND DATA</h1>
+          </div>
+        );
+      }
     return (
         <div className="bg-white">
             <div className="mx-auto max-w-2xl py-16 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
