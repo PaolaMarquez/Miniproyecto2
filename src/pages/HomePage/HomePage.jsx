@@ -56,7 +56,7 @@ export function HomePage() {
         } else {
             getUpcomingMovies(page);
         }
-    }, [page]);
+    }, [page, option]);
 
     return (
         <div className="bg-white">
