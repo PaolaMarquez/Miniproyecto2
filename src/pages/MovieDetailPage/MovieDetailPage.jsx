@@ -1,7 +1,9 @@
 import React from "react";
 import { useState, useEffect } from 'react';
+import { Link} from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useMovies } from "../../hooks/useMovies";
+import { HomePageUrl, MovieDetailPageUrl } from "../../constants/urls";
 export function MovieDetailPage() {
   const { movieId } = useParams();
   const { getMovie, movie, isLoading } = useMovies();
@@ -100,7 +102,12 @@ export function MovieDetailPage() {
             <div className=" md:bg-transparent lg:bg-transparent  mt-0 md:mr-10  pl-6 italic">
               <h2 className="text-sm md:text-lg font-medium text-gray-100">Overview</h2>
               <p className='text-sm md:text-md whitespace-normal text-gray-100'>{overview}</p>
-            </div>           
+            </div>
+            <div className="flex justify-center items-center mt-4 mb-3 md:justify-center">
+              <button className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-1 rounded">
+                <Link to={HomePageUrl}>Go Back</Link>
+              </button> 
+              </div>          
          
         </div>
         </div>
